@@ -54,10 +54,9 @@ function Footer() {
       </div>
       <div className="copyright">
         <p> Se reservan derechos de autor &copy; 2023</p>
-        <img src="src\assets\imagenes/payment.png" alt="pagos"/>
+        <img src="src/assets/imagnes/pagos.png" alt="pagos"/>
       </div>
     </div>
-    src\assets\imagenes
   
   </footer>
    );
