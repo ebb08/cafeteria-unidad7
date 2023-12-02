@@ -3,7 +3,7 @@ import "../estilos/MejoresCategorias.css";
 
 
 function MejoresCategorias(props) {
-  const imagePath = `src/assets/imagenes/category-${props.imgcard}.jpg`;
+  const imagePath = `../assets/category-${props.imgcard}.jpg`;
 
   return (
     <div className="container-top">

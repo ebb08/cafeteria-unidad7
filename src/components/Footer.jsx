@@ -1,5 +1,6 @@
 
 import "../estilos/Footer.css"
+import payment from "../assets/payment.png";
 
 function Footer() {
   return ( 
@@ -54,10 +55,10 @@ function Footer() {
       </div>
       <div className="copyright">
         <p> Se reservan derechos de autor &copy; 2023</p>
-        <img src="src/assets/imagnes/pagos.png" alt="pagos"/>
-      </div>
+        <img src={payment} alt="payment"/>    
+        </div>
     </div>
-  
+
   </footer>
    );
 }
