@@ -1,28 +1,19 @@
-import { useContext } from "react"
-import AuthContext from "../context/AuthContext"
-import { useState } from "react"
-import "../estilos/Login.css"
 
+import { useContext, useEffect } from "react";
+import AuthContext from "../context/AuthContext";
+import { useState } from "react";
+import "../estilos/Login.css";
 
 const Login = () => {
+  const { setStep } = useContext(AuthContext);
+  const [nombre, setNombre] = useState(localStorage.getItem("nombre") || "");
+  const [contraseña, setContraseña] = useState(
+    localStorage.getItem("contraseña") || ""
+  );
+  const [error, setError] = useState(false);
 
-  const { setStep }= useContext(AuthContext);
-
-  const[nombre, setNombre] = useState("")
-  const[contraseña, setContraseña] = useState("")
-  const[error, setError] = useState(false)
-
-
-  const handleSubmit =(e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-
-    // console.log("Nombre:", nombre);
-    // console.log("Contraseña:", contraseña);
-
-    // if(nombre === "" || contraseña === "") {
-    //   setError(true);
-    //   return;
-    // }
 
     if (nombre.trim() === "" || contraseña.trim() === "") {
       setError("Todos los campos son obligatorios");
@@ -35,39 +26,47 @@ const Login = () => {
     }
 
     setError(false);
+    // Guardar en localStorage
+    localStorage.setItem("nombre", nombre);
+    localStorage.setItem("contraseña", contraseña);
     setStep("Tienda");
   };
 
-  
+  useEffect(() => {
+    // Verificar si hay datos guardados en localStorage al cargar el componente
+    const storedNombre = localStorage.getItem("nombre");
+    const storedContraseña = localStorage.getItem("contraseña");
+    if (storedNombre && storedContraseña) {
+      setNombre(storedNombre);
+      setContraseña(storedContraseña);
+    }
+  }, []);
+
   return (
     <section className="logcontent">
-    <h1 className="textlogin">Login</h1>
-    <div className="container-logo-login">
-          <i className="fa-solid fa-mug-hot"></i>
-          <h1 className="logo"><a href="/">CafeBar</a> </h1>
-        </div>
-    <form className="formulario"
-    onSubmit={handleSubmit}
-    >
-    <input 
-    type="text"
-    value={nombre}
-    onChange={e => setNombre(e.target.value)}
-    />
-    <input 
-    type="password"
-    value={contraseña}
-    onChange={e => setContraseña(e.target.value)}
-    />
-    <button onClick={handleSubmit}>Iniciar sesión</button>
-    </form>
+      <h1 className="textlogin">Login</h1>
+      <div className="container-logo-login">
+        <i className="fa-solid fa-mug-hot"></i>
+        <h1 className="logo">
+          <a href="/">CafeBar</a>{" "}
+        </h1>
+      </div>
+      <form className="formulario" onSubmit={handleSubmit}>
+        <input
+          type="text"
+          value={nombre}
+          onChange={(e) => setNombre(e.target.value)}
+        />
+        <input
+          type="password"
+          value={contraseña}
+          onChange={(e) => setContraseña(e.target.value)}
+        />
+        <button type="submit">Iniciar sesión</button>
+      </form>
+      <div className="mnserror">{error && <p>{error}</p>}</div>
+    </section>
+  );
+};
 
-    <div className="mnserror">  {error && <p>{error}</p>}
-    </div>
-  
-  </section>
-
-  )
-}
-
-export default Login
+export default Login;
