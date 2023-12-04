@@ -1,15 +1,16 @@
-import PropTypes from 'prop-types';
+
+import PropTypes from "prop-types";
 import "../estilos/MejoresCategorias.css";
 
-
 function MejoresCategorias(props) {
-  const imagePath = `../assets/category-${props.imgcard}.jpg`;
+  // const imagePath = `../assets/category-${props.imgcard}.jpg`;
 
   return (
     <div className="container-top">
-      <div className='container-categories'>
-        <div className='card-category card-product'>
-          <img className="imgcard" src={imagePath} alt="foto cafe" />
+      <div className="container-categories">
+        <div className="card-category card-product">
+          {/* modificas las props para que reciba la ruta completa */}
+          <img className="imgcard" src={props.imgcard} alt="foto cafe" />
           <p>{props.nombreCafe}</p>
           <span>Ver más</span>
         </div>

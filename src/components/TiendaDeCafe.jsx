@@ -6,6 +6,15 @@ import MejoresProductos from "./MejoresProductos";
 import Gallery from "./Gallery"
 import Footer from "./Footer"
 
+//importar la ruta de la imagen
+import cafeAustraliano from "../assets/cafe-australiano.jpg";
+import cafeHelado from "../assets/cafe-helado.jpg";
+import cafeIngles from "../assets/cafe-ingles.jpg";
+import cafeIrish from "../assets/cafe-irish.jpg";
+import categoryCapuchino from "../assets/category-capuchino.jpg";
+import categoryExpreso from "../assets/category-expreso.jpg";
+import categoryMoca from "../assets/category-moca.jpg";
+
 const TiendaDeCafe = () => {
   return (
     <div className="TiendaDeCafe">
@@ -40,18 +49,16 @@ const TiendaDeCafe = () => {
 
         <div className='container-top-categories'>
 
-        <MejoresCategorias
-        nombreCafe= 'Café moca'
-        imgcard='moca'
-        />
-              <MejoresCategorias
-        nombreCafe= 'Expreso americano'
-        imgcard='expreso'
-        />
-              <MejoresCategorias
-        nombreCafe= 'Capuchino'
-        imgcard='capuchino'
-        />
+          {/* agregas la variable con la ruta de la imagen */}
+          <MejoresCategorias nombreCafe="Café moca" imgcard={categoryMoca} />
+          <MejoresCategorias
+            nombreCafe="Expreso americano"
+            imgcard={categoryExpreso}
+          />
+          <MejoresCategorias
+            nombreCafe="Capuchino"
+            imgcard={categoryCapuchino}
+          />
         </div>
       </section>
 
@@ -64,41 +71,39 @@ const TiendaDeCafe = () => {
            </div>
            <div className='container-products'>
 
-           <MejoresProductos
-           imgTop="irish"
-           discount="-13%"
-           stars=""
-           nameCoffe="Café Irish"
-           price={"$18.270"}
-           discountPrice={"$21.000"}
-           />
-
-        <MejoresProductos
-           imgTop="ingles"
-           discount="-22%"
-           stars=""
-           nameCoffe="Café Inglés"
-           price={"$17.160"}
-           discountPrice={"$22.000"}
-           />
-
-        <MejoresProductos
-           imgTop="australiano"
-           discount="-5%"
-           stars=""
-           nameCoffe="Café Australiano"
-           price={"$16.625"}
-           discountPrice={"$17.500"}
-           />
-
-        <MejoresProductos
-           imgTop="helado"
-           discount=""
-           stars=""
-           nameCoffe="Café Helado"
-           price={"$21.200"}
-           discountPrice=""
-           />
+          {/* igualmente en mejoresProductos */}
+          <MejoresProductos
+            imgTop={cafeIrish}
+            discount="-13%"
+            stars=""
+            nameCoffe="Café Irish"
+            price={"$18.270"}
+            discountPrice={"$21.000"}
+          />
+          <MejoresProductos
+            imgTop={cafeIngles}
+            discount="-22%"
+            stars=""
+            nameCoffe="Café Inglés"
+            price={"$17.160"}
+            discountPrice={"$22.000"}
+          />
+          <MejoresProductos
+            imgTop={cafeAustraliano}
+            discount="-5%"
+            stars=""
+            nameCoffe="Café Australiano"
+            price={"$16.625"}
+            discountPrice={"$17.500"}
+          />
+          <MejoresProductos
+            imgTop={cafeHelado}
+            discount=""
+            stars=""
+            nameCoffe="Café Helado"
+            price={"$21.200"}
+            discountPrice=""
+          />
 
            </div>   
       </section>
