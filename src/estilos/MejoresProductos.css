@@ -65,10 +65,8 @@
 
 
 .container-img img {
+  justify-content: center;
   width: 100%;
-  max-width: 200px;
-  max-height: 200px;
-  overflow: hidden; /* Oculta el contenido que excede las dimensiones del contenedor */
   position: relative;
   border-radius: 5px;
 
