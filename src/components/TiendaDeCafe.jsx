@@ -7,15 +7,34 @@ import Gallery from "./Gallery"
 import Footer from "./Footer"
 
 //importar la ruta de la imagen
-import cafeAustraliano from "../assets/cafe-australiano.jpg";
-import cafeHelado from "../assets/cafe-helado.jpg";
-import cafeIngles from "../assets/cafe-ingles.jpg";
-import cafeIrish from "../assets/cafe-irish.jpg";
+// import cafeAustraliano from "../assets/cafe-australiano.jpg";
+// import cafeHelado from "../assets/cafe-helado.jpg";
+// import cafeIngles from "../assets/cafe-ingles.jpg";
+// import cafeIrish from "../assets/cafe-irish.jpg";
 import categoryCapuchino from "../assets/category-capuchino.jpg";
 import categoryExpreso from "../assets/category-expreso.jpg";
 import categoryMoca from "../assets/category-moca.jpg";
+import { useState } from "react";
+import { useEffect } from "react";
 
 const TiendaDeCafe = () => {
+
+    const [data,setData] = useState([]);
+
+    useEffect(()=>{
+    
+    fetch("https://api.sampleapis.com/coffee/iced")
+    .then((info)=> info.json())
+    .then((finalInfo)=> setData(finalInfo))
+
+    },[])
+
+    const imp = () =>{
+      console.log(data);
+    }
+
+    imp();
+
   return (
     <div className="TiendaDeCafe">
       <Header/>
@@ -72,15 +91,17 @@ const TiendaDeCafe = () => {
            <div className='container-products'>
 
           {/* igualmente en mejoresProductos */}
+          {data.map((information, index)=>
           <MejoresProductos
-            imgTop={cafeIrish}
-            discount="-13%"
-            stars=""
-            nameCoffe="Café Irish"
-            price={"$18.270"}
-            discountPrice={"$21.000"}
-          />
-          <MejoresProductos
+          key={index}
+          data={information}
+          imgTop={information.image}
+          nameCoffe={information.title}
+          desc={information.description}
+        />
+          )}
+
+          {/* <MejoresProductos
             imgTop={cafeIngles}
             discount="-22%"
             stars=""
@@ -103,7 +124,7 @@ const TiendaDeCafe = () => {
             nameCoffe="Café Helado"
             price={"$21.200"}
             discountPrice=""
-          />
+          /> */}
 
            </div>   
       </section>
