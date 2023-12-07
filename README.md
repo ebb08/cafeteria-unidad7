@@ -1,4 +1,4 @@
-¡Bienvenido a Café Aromático! Somos una cafetería acogedora ubicada en el corazón de la ciudad, donde se fusiona la pasión por el café con un ambiente relajado y amigable.
+¡Bienvenido a CaféBar! Somos una cafetería acogedora ubicada en el corazón de la ciudad, donde se fusiona la pasión por el café con un ambiente relajado y amigable.
 
 ## Acerca de Nosotros
 En Café Aromático, nos esforzamos por ofrecer la mejor experiencia cafetera. Nuestro objetivo es brindar a nuestros clientes no solo deliciosas bebidas, sino también un lugar cómodo para relajarse, conectarse o trabajar.
@@ -14,4 +14,6 @@ En Café Aromático, nos esforzamos por ofrecer la mejor experiencia cafetera. N
 
 ¡Ven y únete a nosotros para disfrutar de una taza de café excepcional en Café Aromático!
 
-![Vista exterior de Café Aromático](./src/assets/imagenes/readme.png)
+https://ebb08.github.io/cafeteria-unidad7/
+
+![Vista exterior de Café Aromático](./src/assets/readme.png)
