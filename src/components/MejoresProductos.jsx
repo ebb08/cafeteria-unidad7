@@ -10,6 +10,19 @@ function MejoresProductos({data}) {
         <div className="container-img">
           {/* modificas las props para que se envie la ruta completa */}
           <img className="imgTop" src={data.image} alt="foto cafe" />
+          <div className="button-group">
+            <span>
+              {" "}
+              <i className="fa-solid fa-eye"></i>
+            </span>
+            <span>
+              <i className="fa-regular fa-heart"></i>
+            </span>
+            <span>
+              <i className="fa-solid fa-code-compare"></i>
+            </span>
+          </div>
+
           <div className="starscard">
           <div className="stars">
             <i className="fa-solid fa-star"></i>
@@ -23,18 +36,7 @@ function MejoresProductos({data}) {
           </span>
           </div>
           {/* <span className="discount">{props.discount}</span> */}
-          <div className="button-group">
-            <span>
-              {" "}
-              <i className="fa-solid fa-eye"></i>
-            </span>
-            <span>
-              <i className="fa-regular fa-heart"></i>
-            </span>
-            <span>
-              <i className="fa-solid fa-code-compare"></i>
-            </span>
-          </div>
+
         </div>
         <div className="content-card-product">
 
